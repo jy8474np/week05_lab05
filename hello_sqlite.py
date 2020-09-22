@@ -6,7 +6,7 @@ conn = sqlite3.connect('first_db.sqlite') # connect/create new if it does not al
 conn.execute('CREATE TABLE products (id int, name txt)')
 
 conn.execute('INSERT INTO products values (1000, "hat")')
-conn.execute('INSERT INTO products values (1000, "jacker")')
+conn.execute('INSERT INTO products values (1000, "jacket")')
 
 conn.commit()
 
