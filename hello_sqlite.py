@@ -1,7 +1,7 @@
 
 import sqlite3
 
-conn = sqlite3.connect('frist_db.sqlite') # connect/create new if it does not already exist
+conn = sqlite3.connect('first_db.sqlite') # connect/create new if it does not already exist
 
 conn.execute('CREATE TABLE products (id int, name txt)')
 
@@ -16,6 +16,8 @@ for row in results:
     print(row)
 
 conn.close()
+
+
 
 
 
