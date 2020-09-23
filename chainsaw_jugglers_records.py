@@ -57,8 +57,11 @@ def update_record_holder():
 # Obtain name of desired record holder via user input prompt. Delete if found, error if not found
 def delete_record_holder():
     delete_name = (input('Enter the name of the record holder you would like to delete: '))
-    with sqlite3.connect(db) as conn:
-        conn.execute('DELETE from rankings WHERE name = ?', (delete_name,))
+    if delete_name:
+    	with sqlite3.connect(db) as conn:
+        		conn.execute('DELETE from rankings WHERE name = ?', (delete_name, ))
+    else:
+        print('We were unable to find a record holder by that name in our database.')
     conn.close()
 
 create_table()
