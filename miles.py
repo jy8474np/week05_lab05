@@ -24,7 +24,10 @@ def add_miles(vehicle, new_miles):
     if not isinstance(new_miles, (int, float)) or new_miles < 0:
         raise MileageError('Provide a positive number for new miles')
 
-    vehicle = vehicle.upper() # Convert text to UPPERcase
+    vehicle = vehicle.upper().strip() # Convert text to UPPERcase & remove blank/white space
+
+    if not vehicle:
+        raise MileageError('Provide a vehicle name')
 
     with sqlite3.connect(db_url) as conn:
         # Attempt to update miles
