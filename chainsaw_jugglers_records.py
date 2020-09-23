@@ -21,9 +21,9 @@ def existing_record_holders():
 
 # Obtain data for all columns via user input prompts and update rankings table with new info
 def add_new_record_holder():
-    new_name = (input("Enter record holder's name: "))
-    new_country = (input("Enter record holder's country of origin: "))
-    new_catches = int(input("Enter record holder's highest number of catches: "))
+    new_name = (input("Enter new record holder's name: "))
+    new_country = (input("Enter new record holder's country of origin: "))
+    new_catches = int(input("Enter new record holder's highest number of catches: "))
     # Inserts user input info into a new row within the record_holders table
     with sqlite3.connect(db) as conn:
         conn.execute(f'INSERT INTO rankings VALUES (? , ?, ?)', (new_name, new_country, new_catches))
