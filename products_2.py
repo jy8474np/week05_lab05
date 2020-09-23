@@ -7,8 +7,8 @@ with sqlite3.connect(db) as conn:
     conn.execute('CREATE TABLE IF NOT EXISTS products (name TEXT UNIQUE, quantity INT)') # Adds unique constraints to variables
 conn.close()
 
-name = 'hat'
-quantity = 4
+name = 'giant Russian hat'
+quantity = 1
 
 try:
     with sqlite3.connect(db) as conn:
