@@ -16,6 +16,7 @@ def existing_record_holders():
         conn.execute('INSERT INTO rankings values ("Ian Stewart", "Canada", 94)')
         conn.execute('INSERT INTO rankings values ("Aaron Gregg", "Canada", 88)')
         conn.execute('INSERT INTO rankings values ("Chad Taylor", "USA", 78)')
+        conn.execute('INSERT INTO rankings values ("Groucho Marx", "Feedonia", 01)') # Added as fun, easy delete choice
     conn.close()
 
 # Obtain data for all columns via user input prompts and update rankings table with new info
@@ -64,9 +65,17 @@ def delete_record_holder():
         print('We were unable to find a record holder by that name in our database.')
     conn.close()
 
+def display_all_record_holders():
+    conn = sqlite3.connect(db)
+    results = conn.execute('SELECT * FROM rankings')
+    print("The World's Best Chainsaw Jugglers are: ")
+    for row in results:
+        print(row)
+
 create_table()
 existing_record_holders()
 add_new_record_holder()
 search_by_record_holder()
 update_record_holder()
 delete_record_holder()
+display_all_record_holders()
